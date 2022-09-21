@@ -1,0 +1,195 @@
+Demo.html
+
+<html>
+   <head>
+      <head>
+         <link rel="icon" href="greenlight.jpeg">
+         <link rel="stylesheet" href="styles.css">
+         <!--using FontAwesome---------------->
+         <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+   </head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE-edge">
+   <meta name="viewport" content="width=device-width, intial-scale=1.0">
+   <title>Example page</title>
+   <!--style----->
+   <style>
+      body{
+      background-color:#161616;
+      }
+      * {box-sizing: border-box}
+      body {font-family: Verdana, sans-serif; margin:0}
+      .mySlides {display: none}
+      img {vertical-align: middle;}
+      /* Slideshow container */
+      .slideshow-container {
+      max-width: 1000px;
+      position: relative;
+      margin: auto;
+      }
+      /* Next & previous buttons */
+      .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+      }
+      /* Position the "next button" to the right */
+      .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+      }
+      /* On hover, add a black background color with a little bit see-through */
+      .prev:hover, .next:hover {
+      background-color: rgba(0,0,0,0.8);
+      }
+      /* Caption text */
+      .text {
+      color: #28582a;
+      font-size: 44px;
+      padding: 8px 12px;
+      position: absolute;
+      bottom: 8px;
+      width: 100%;
+      text-align: center;
+      }
+      /* Number text (1/3 etc) */
+      .numbertext {
+      color: #f2f2f2;
+      font-size: 12px;
+      padding: 8px 12px;
+      position: absolute;
+      top: 0;
+      }
+      /* The dots/bullets/indicators */
+      .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+      }
+      .active, .dot:hover {
+      background-color: #717171;
+      }
+      /* Fading animation */
+      .fade {
+      -webkit-animation-name: fade;
+      -webkit-animation-duration: 1.5s;
+      animation-name: fade;
+      animation-duration: 1.5s;
+      }
+      @-webkit-keyframes fade {
+      from {opacity: .4} 
+      to {opacity: 1}
+      }
+      @keyframes fade {
+      from {opacity: .4} 
+      to {opacity: 1}
+      }
+      /* On smaller screens, decrease text size */
+      @media only screen and (max-width: 300px) {
+      .prev, .next,.text {font-size: 11px}
+      }
+      .active
+      {
+      background-color:#c2e4c2;
+      }
+   </style>
+   <section id="main">
+      <!--navigation-------------------------------->
+      <nav>
+         <!--logo--->
+         <a class="logo" href="#"><img src="navlogo.jpg" width="180px" height="50px"></a>
+         <!--menu--------->
+         <div class="toggle"></div>
+         <ul class="menu">
+            <li><a href="#main" class="active" >grocery</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#footer">Contact</a></li>
+         </ul>
+         <!--language-->
+         <a href="#" class="lang">Login</a>
+      </nav>
+   </section>
+   </head>
+   <body>
+      <!--name--------------------------->
+      <div class="name">
+         <div class="slideshow-container" style="    margin-top: 68px;">
+            <div class="mySlides fade">
+               <div class="numbertext">1 / 3</div>
+               <img src="img_nature_wide.jpg" style="width:100%">
+               <div class="text">"A person buying ordinary products in a supermarket is in touch with his deepest emotions.”</div>
+            </div>
+            <div class="mySlides fade">
+               <div class="numbertext">2 / 3</div>
+               <img src="img_snow_wide.jpg" style="width:100%">
+               <div class="text">"Forget about being world-famous, it's hard enough just getting the automatic doors at the supermarket to acknowledge our existence.”</div>
+            </div>
+            <div class="mySlides fade">
+               <div class="numbertext">3 / 3</div>
+               <img src="img_mountains_wide.jpg" style="width:100%">
+               <div class="text">"It's easy for Americans to forget that the food they eat doesn't magically appear on a supermarket shelf."</div>
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+         </div>
+         <br>
+         <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span> 
+            <span class="dot" onclick="currentSlide(2)"></span> 
+            <span class="dot" onclick="currentSlide(3)"></span> 
+         </div>
+         <script>
+            var slideIndex = 1;
+            showSlides(slideIndex);
+            
+            function plusSlides(n) {
+              showSlides(slideIndex += n);
+            }
+            
+            function currentSlide(n) {
+              showSlides(slideIndex = n);
+            }
+            
+            function showSlides(n) {
+              var i;
+              var slides = document.getElementsByClassName("mySlides");
+              var dots = document.getElementsByClassName("dot");
+              if (n > slides.length) {slideIndex = 1}    
+              if (n < 1) {slideIndex = slides.length}
+              for (i = 0; i < slides.length; i++) {
+                  slides[i].style.display = "none";  
+              }
+              for (i = 0; i < dots.length; i++) {
+                  dots[i].className = dots[i].className.replace(" active", "");
+              }
+              slides[slideIndex-1].style.display = "block";  
+              dots[slideIndex-1].className += " active";
+            }
+         </script>
+      </div>
+      <!--down arrow-------------->
+      <div class="black-line" ></div>
+      <!--social---------------->
+      <div class="social">
+         <a href="#"><i class="fab fa-facebook-f"></i></a>
+         <a href="#"><i class="fab fa-instagram"></i></a>
+         <a href="#"><i class="fab fa-twitter"></i></a>
+         <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+   </body>
+</html>
